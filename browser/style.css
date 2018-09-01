@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: #121212;
+    color: white;
+    cursor: default;
+    outline: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body, input, button, select, option, textarea {
+    font: 13px/1.5 'Poppins', sans-serif;
+}
+
+a, img {
+    user-drag: none;
+    -webkit-user-drag: none;
+    object-fit: contain;
+}
+
+::-webkit-scrollbar {
+        height: 15px;
+        width: 15px;
+        background: #121212;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #333;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #404040;
+    }
+    ::-webkit-scrollbar-corner {
+        background: #121212;
+}
+
+@font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Poppins Light'), local('Poppins-Light'), url('./font/Poppins-Light.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Poppins'), local('Poppins-Regular'), url('./font/Poppins-Regular.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Poppins Medium'), local('Poppins-Medium'), url('./font/Poppins-Medium.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url('./font/Poppins-SemiBold.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Poppins Bold'), local('Poppins-Bold'), url('./font/Poppins-Bold.ttf') format('truetype');
+}
+
+.spinner {
+        width: 44px;
+    }
+    .spinner div {
+        width: 10px;
+        height: 10px;
+        margin: 0 2px;
+        background-color: white;
+        border-radius: 100%;
+        display: inline-block;
+        opacity: .5;
+        animation: spinner-bouncedelay 1.4s infinite ease-in-out both;
+    }
+    .spinner div:nth-child(1) {
+        animation-delay: -0.32s;
+    }
+    .spinner div:nth-child(2) {
+        animation-delay: -0.16s;
+    }
+    @keyframes spinner-bouncedelay {
+        0%, 80%, 100% {
+            transform: scale(0);
+        } 40% {
+            transform: scale(1.0);
+        }
+}
+
+/****************************************************************/
+
+header {
+        position: relative;
+        margin: 5px;
+        height: 29px;
+        line-height: 29px;
+        text-align: center;
+    }
+    header .drag {
+        position: absolute;
+        left: 100px;
+        right: 45px;
+        top: 0;
+        bottom: 0;
+        -webkit-app-region: drag;
+    }
+    header .title {
+        font: menu;
+        font-size: 12px;
+        opacity: .8;
+    }
+    header .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45px;
+        height: 29px;
+        z-index: 100;
+    }
+    header .close:hover {
+        background: #E81123;
+    }
+    header .close:active {
+        background: #B50D1B;
+    }
+    header .close img {
+        margin-bottom: -1px;
+}
+
+/****************************************************************/
+
+.track-info {
+        position: relative;
+        margin-top: -34px;
+        padding: 10px 15px 15px;
+        font-weight: 300;
+        z-index: 99;
+    }
+    .track-info .drag {
+        position: absolute;
+        top: 29px;
+        left: 100px;
+        right: 5px;
+        bottom: 0;
+        -webkit-app-region: drag;
+    }
+    .track-info .art {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        float: left;
+        margin-right: 15px;
+        background: black;
+    }
+    .track-info .art::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        height: 0;
+        width: 0;
+        border-top: 7px solid white;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        opacity: 0;
+        transition: opacity .2s;
+    }
+    .track-info .art img {
+        width: 70px;
+        height: 70px;
+        background-image: none;
+        background-size: cover;
+        transition: background-image .5s, opacity .2s;
+    }
+    .track-info .art:hover img {
+        opacity: .5;
+    }
+    .track-info .art:hover::after {
+        opacity: 1;
+    }
+    .track-info ul {
+        list-style: none;
+    }
+    .track-info li {
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        opacity: .8;
+    }
+    .track-info li::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to left, #121212, transparent);
+        opacity: 0;
+        transition: opacity .2s;
+    }
+    .track-info li.overflow::after {
+        opacity: 1;
+    }
+    .track-info .title {
+        margin-right: 45px;
+        font-size: 1.5em;
+        font-weight: 500;
+        opacity: 1;
+    }
+    .track-info .artists {
+        margin-bottom: 3px;
+    }
+    .track-info .disabled {
+        opacity: .3;
+}
+
+/****************************************************************/
+
+main {
+        position: absolute;
+        top: 103px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    main > .fade-in, main > .fade-out {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 33%;
+        background: linear-gradient(to top, transparent 0%, #181818 calc(100% - 10px));
+        pointer-events: none;
+    }
+    main > .fade-out {
+        top: auto;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, #181818 calc(100% - 10px));
+}
+
+/****************************************************************/
+
+.lyrics-box {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px 20px;
+        background: #181818;
+        font-weight: 500;
+        text-align: center;
+        overflow: auto;
+    }
+    .lyrics-box .placeholder {
+        height: calc(50% - 1.5em);
+        margin: 0;
+    }
+    .lyrics-box .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .lyrics-box p {
+        margin: 15px 0;
+        font-size: 1.3em;
+    }
+    .lyrics-box p.parentheses {
+        opacity: .8;
+    }
+    .lyrics-box p.end {
+        opacity: .3;
+    }
+    .lyrics-box .powered-by {
+        margin-top: 50px;
+        font-size: .8em;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: .3;
+    }
+    .lyrics-box .badge {
+        border-radius: 5px;
+        display: block;
+        height: 50px;
+        margin-bottom: -100px;
+        overflow: hidden;
+    }
+    .lyrics-box .badge img {
+        margin-top: -27px;
+        width: 200px;
+        opacity: .6;
+        transition: opacity .2s;
+    }
+    .lyrics-box .badge:hover img {
+        opacity: 1;
+    }
+    .lyrics-box .no-lyrics {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        transform: translate(-50%, -50%);
+        opacity: .3;
+    }
+    .lyrics-box p span {
+        display: inline-block;
+    }
+    .lyrics-box br {
+        opacity: 0;
+}

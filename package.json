@@ -1,0 +1,40 @@
+{
+  "name": "vlc-lyrics",
+  "version": "0.0.1",
+  "description": "Shows lyrics from the song you're currently playing in VLC.",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerdnem/vlc-lyrics.git"
+  },
+  "keywords": [
+    "vlc",
+    "lyrics",
+    "musixmatch",
+    "music"
+  ],
+  "author": "jjan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yishn/spotify-lyrics/issues"
+  },
+  "homepage": "https://github.com/zerdnem/vlc-lyrics",
+  "dependencies": {
+    "jsdom": "^7.2.2",
+    "preact": "^7.2.0",
+    "request": "^2.76.0",
+    "scroll": "^2.0.0",
+    "wintools": ">=0.1.0"
+  },
+  "build": {
+    "appId": "de.jjan.vlclyrics",
+    "copyright": "Copyright © 2016-2017 jjan"
+  },
+  "devDependencies": {
+    "electron": "^1.7.8",
+    "electron-builder": "^19.33.0"
+  },
+  "scripts": {
+    "build": "build --dir"
+  }
+}
